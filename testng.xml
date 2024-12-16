@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<parameter name="browser" value="chrome" />
+	<parameter name="environment" value="QA" />
+
+
+	<test thread-count="2" name="parallel" parallel="classes">
+
+		<classes>
+			<class name="Runners.caller_runner" />
+			<class name="Runners.receiver_runner" />
+		</classes>
+
+	</test><!--
+	Test -->
+
+	<test name="testcase">
+
+		<classes>
+			<class name="Runners.runner" />
+		</classes>
+
+	</test>
+
+
+</suite> <!--
+Suite -->
