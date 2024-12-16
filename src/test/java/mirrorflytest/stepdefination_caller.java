@@ -11,7 +11,7 @@ import io.cucumber.java.en.When;
 
 public class stepdefination_caller extends methods {
 	public static WebDriverWait wait;
-	
+
 	@Given("Caller : Navigate to register page")
 	public void caller_navigate_to_register_page() {
 		caller_driver.get(url);
@@ -33,7 +33,7 @@ public class stepdefination_caller extends methods {
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(pageloader));
 			caller_driver.findElement(session_confirm_btn).click();
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(pageloader));
-		}catch (Exception e) {
+		} catch (Exception e) {
 		}
 	}
 

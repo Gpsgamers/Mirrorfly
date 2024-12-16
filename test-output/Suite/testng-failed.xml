@@ -3,24 +3,12 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <parameter name="environment" value="QA"/>
   <parameter name="browser" value="chrome"/>
-  <test thread-count="5" parallel="classes" name="parallel(failed)">
-    <classes>
-      <class name="Runners.receiver_runner">
-        <methods>
-          <include name="setUpClass"/>
-          <include name="runScenario" invocation-numbers="0"/>
-          <include name="tearDownClass"/>
-          <include name="browserlaunchconfiguration"/>
-        </methods>
-      </class> <!-- Runners.receiver_runner -->
-    </classes>
-  </test> <!-- parallel(failed) -->
   <test thread-count="5" name="testcase(failed)">
     <classes>
       <class name="Runners.runner">
         <methods>
           <include name="setUpClass"/>
-          <include name="runScenario" invocation-numbers="0 1 2 3"/>
+          <include name="runScenario" invocation-numbers="1"/>
           <include name="tearDownClass"/>
         </methods>
       </class> <!-- Runners.runner -->

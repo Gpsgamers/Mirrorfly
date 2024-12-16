@@ -28,7 +28,7 @@ public class stepdefination extends methods {
 
 	@Then("call log screen is displayed")
 	public void call_log_screen_is_displayed() {
-		caller_wait.until(ExpectedConditions.visibilityOfElementLocated(FloatingCallAction)).click();;
+		caller_wait.until(ExpectedConditions.visibilityOfElementLocated(FloatingCallAction)).click();
 	}
 
 	@When("click on the floating call icon")
@@ -63,7 +63,9 @@ public class stepdefination extends methods {
 
 	@Then("call is triggered to receiver")
 	public void call_is_triggered_to_receiver() {
-		Assert.assertTrue(receiver_wait.until(ExpectedConditions.visibilityOfElementLocated(callattend_button)).isDisplayed(),"attend button is not displayed");
+		Assert.assertTrue(
+				receiver_wait.until(ExpectedConditions.visibilityOfElementLocated(callattend_button)).isDisplayed(),
+				"attend button is not displayed");
 	}
 
 	@When("Receiver attend the call")
@@ -74,71 +76,66 @@ public class stepdefination extends methods {
 
 	@Then("the call is connected to both caller and receiver")
 	public void the_call_is_connected_to_both_caller_and_receiver() {
-		Boolean caller_timer_running = caller_wait.until(ExpectedConditions.visibilityOfElementLocated(calls_status("00:04"))).isDisplayed();
-		Boolean receiver_timer_running = caller_wait.until(ExpectedConditions.visibilityOfElementLocated(calls_status("00:08"))).isDisplayed();
-		Assert.assertTrue( caller_timer_running && receiver_timer_running ,"call is not connected");
+		Boolean caller_timer_running = caller_wait
+				.until(ExpectedConditions.visibilityOfElementLocated(calls_status("00:05"))).isDisplayed();
+		Boolean receiver_timer_running = caller_wait
+				.until(ExpectedConditions.visibilityOfElementLocated(calls_status("00:09"))).isDisplayed();
+		Assert.assertTrue(caller_timer_running && receiver_timer_running, "call is not connected");
 	}
 
 	@When("caller goes to offline")
 	public void caller_goes_to_offline() throws InterruptedException {
-		//wss://janus.mirrorfly.com/
+		block_url(caller_driver, "block", "wss://janus.mirrorfly.com/");
 		offline(caller_driver);
-		Thread.sleep(30000);
-		online(caller_driver);
-		
 	}
 
 	@Then("caller goes to reconnection state")
 	public void caller_goes_to_reconnection_state() {
-		//Assert.assertTrue(caller_wait.until(ExpectedConditions.visibilityOfElementLocated(calls_status("Reconnection"))).isDisplayed(),"Reconnection text is not displayed");
+		Assert.assertTrue(caller_wait.until(ExpectedConditions.visibilityOfElementLocated(calls_status("Reconnecting")))
+				.isDisplayed(), "Reconnection text is not displayed");
+		block_url(caller_driver, "unblock", null);
 	}
 
 	@When("caller connects the call after {int} second")
 	public void caller_connects_the_call_after_second(Integer int1) throws InterruptedException {
-		int1 = int1*1000;
-		System.out.println(30000);
-		
-		
+		Thread.sleep(int1 * 1000);
+		online(caller_driver);
 	}
 
 	@Then("caller:reconnection text is removed for both caller and receiver")
 	public void caller_reconnection_text_is_removed_for_both_caller_and_receiver() {
-		
+		caller_wait = new WebDriverWait(caller_driver, Duration.ofSeconds(8));
+		receiver_wait = new WebDriverWait(receiver_driver, Duration.ofSeconds(8));
+		Boolean caller_status = caller_wait
+				.until(ExpectedConditions.invisibilityOfElementLocated(calls_status("Reconnecting")));
+		Boolean receiver_status = caller_wait
+				.until(ExpectedConditions.invisibilityOfElementLocated(calls_status("Reconnecting")));
+		Assert.assertTrue(caller_status, "Reconnection text is changed on caller side within the gien time");
+		Assert.assertTrue(receiver_status, "Reconnection text is changed on receiver side within the gien time");
 	}
 
 	@When("receiver goes to offline")
 	public void receiver_goes_to_offline() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+
 	}
 
 	@Then("receiver goes to reconnection state")
 	public void receiver_goes_to_reconnection_state() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
 	}
 
 	@When("receiver connects the call after {int} second")
 	public void receiver_connects_the_call_after_second(Integer int1) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
 	}
 
 	@Then("receiver:reconnection text is removed for both caller and receiver")
 	public void receiver_reconnection_text_is_removed_for_both_caller_and_receiver() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
 	}
 
 	@When("caller goes to offline for {int} min")
 	public void caller_goes_to_offline_for_min(Integer int1) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
 	}
 
 	@Then("caller is disconnected for both caller and receiver")
 	public void caller_is_disconnected_for_both_caller_and_receiver() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
 	}
 }

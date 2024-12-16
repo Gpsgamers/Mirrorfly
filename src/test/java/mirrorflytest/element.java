@@ -27,16 +27,16 @@ public class element extends base {
 	public static By contacts_search = By.xpath("(//input[@name='search-contacts'])[2]");
 
 	public static By contacts_selection(String number) {
-		return By.xpath("(//label[@for=\""+"91"+ number + "\"])[2]");
+		return By.xpath("(//label[@for=\"" + "91" + number + "\"])[2]");
 	}
 
 	public static By call_now_btn = By.xpath("//div[@class='callButton']");
-	
-	//call screen
+
+	// call screen
 	public static By callattend_button = By.xpath("//span[@class='attenCall']//i");
-	public static By calls_status (String text) {
-		return By.xpath("//span[contains(text(),'"+text+"')]");
+
+	public static By calls_status(String text) {
+		return By.xpath("//span[contains(text(),'" + text + "')]");
 	}
-	
-	
+
 }

@@ -4,11 +4,14 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.chromium.ChromiumDriver;
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.v128.network.Network;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -72,7 +75,7 @@ public class base extends AbstractTestNGCucumberTests {
 		}
 	}
 
-	public static void offline(WebDriver driver){
+	public static void offline(WebDriver driver) {
 		Map<String, Object> offlineParams = new HashMap<>();
 		offlineParams.put("offline", true);
 		offlineParams.put("latency", 0); // Latency in ms (no delay)
@@ -142,6 +145,39 @@ public class base extends AbstractTestNGCucumberTests {
 		deviceMetrics.put("deviceScaleFactor", 1); // No scaling
 		deviceMetrics.put("mobile", false); // Not emulating a mobile device
 		((ChromiumDriver) driver).executeCdpCommand("Emulation.setDeviceMetricsOverride", deviceMetrics);
+
+	}
+
+	public static void block_url(WebDriver driver, String action, String wsurl) {
+		DevTools devTools = null;
+		switch (Browser.toLowerCase()) {
+		case "chrome":
+			devTools = ((ChromeDriver) driver).getDevTools();
+			break;
+
+		case "edge":
+			devTools = ((EdgeDriver) driver).getDevTools();
+			break;
+
+		case "firefox":
+			devTools = ((FirefoxDriver) driver).getDevTools();
+			break;
+		}
+
+		switch (action.toLowerCase()) {
+
+		case "block":
+			devTools.createSession();
+			devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
+			devTools.send(Network.setBlockedURLs(java.util.List.of(wsurl)));
+			System.out.println("WebSocket connections blocked.");
+			break;
+
+		case "unblock":
+			devTools.send(Network.setBlockedURLs(java.util.List.of()));
+			System.out.println("WebSocket connections unblocked.");
+			break;
+		}
 
 	}
 }
