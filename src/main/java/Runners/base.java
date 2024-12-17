@@ -102,7 +102,7 @@ public class base extends AbstractTestNGCucumberTests {
 	public static void online(WebDriver driver) {
 		Map<String, Object> onlineParams = new HashMap<>();
 		onlineParams.put("offline", false);
-		onlineParams.put("latency", 0); // Set small latency to simulate a real connection
+		onlineParams.put("latency", 0);
 		onlineParams.put("downloadThroughput", -1); // -1 for normal speed
 		onlineParams.put("uploadThroughput", -1); // -1 for normal speed
 
@@ -159,8 +159,9 @@ public class base extends AbstractTestNGCucumberTests {
 			devTools = ((EdgeDriver) driver).getDevTools();
 			break;
 
-		case "firefox":
-			devTools = ((FirefoxDriver) driver).getDevTools();
+		default:
+			// devTools = ((FirefoxDriver) driver).getDevTools();
+			System.out.println("unsupported driver");
 			break;
 		}
 
@@ -178,6 +179,5 @@ public class base extends AbstractTestNGCucumberTests {
 			System.out.println("WebSocket connections unblocked.");
 			break;
 		}
-
 	}
 }
