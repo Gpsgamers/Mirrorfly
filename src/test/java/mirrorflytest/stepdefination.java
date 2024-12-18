@@ -2,6 +2,10 @@ package mirrorflytest;
 
 import java.time.Duration;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.v128.network.Network;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -85,8 +89,17 @@ public class stepdefination extends methods {
 
 	@When("caller goes to offline")
 	public void caller_goes_to_offline() throws InterruptedException {
-		block_url(caller_driver, "block", "wss://janus.mirrorfly.com/");
+		// block_url(caller_driver, "block", janus_Url);
+		JavascriptExecutor js = (JavascriptExecutor) caller_driver;
+
+		// Inject JavaScript to track and close WebSocket connections
 		offline(caller_driver);
+		DevTools devTools = ((ChromeDriver) caller_driver).getDevTools();
+		devTools.createSession();
+		devTools.send(
+				Network.enable(java.util.Optional.empty(), java.util.Optional.empty(), java.util.Optional.empty()));
+		devTools.send(Network.disable());
+
 	}
 
 	@Then("caller goes to reconnection state")

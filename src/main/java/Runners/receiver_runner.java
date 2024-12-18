@@ -25,8 +25,8 @@ public class receiver_runner extends base {
 		System.out.println(Browser);
 		receiver_driver = launchbrowser(browser);
 		Environment(environment);
-		receiver_driver.manage().window().maximize();
-		//screen_position(receiver_driver,"right");
+		//receiver_driver.manage().window().maximize();
+		screen_position(receiver_driver,"right");
 		receiver_driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
 	}
 }

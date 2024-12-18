@@ -26,8 +26,8 @@ public class caller_runner extends base {
 		System.out.println(Browser);
 		caller_driver = launchbrowser(browser);
 		Environment(environment);
-		caller_driver.manage().window().maximize();
-        //screen_position(caller_driver,"left");
+		//caller_driver.manage().window().maximize();
+        screen_position(caller_driver,"left");
 		caller_driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
 	}
 

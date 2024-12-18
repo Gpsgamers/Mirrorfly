@@ -24,7 +24,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 public class base extends AbstractTestNGCucumberTests {
 	public static WebDriver caller_driver;
 	public static WebDriver receiver_driver;
-	public static String Browser, caller, receiver, url;
+	public static String Browser, caller, receiver, url,janus_Url;
 
 	public WebDriver launchbrowser(String browser) {
 		if (browser.toLowerCase().equals("chrome")) {
@@ -57,6 +57,7 @@ public class base extends AbstractTestNGCucumberTests {
 
 			caller = "7305466010";
 			receiver = "9159673388";
+			janus_Url= "wss://janus-trickle.mirrorfly.com/"; 
 			break;
 
 		case "DEV":
@@ -64,6 +65,7 @@ public class base extends AbstractTestNGCucumberTests {
 
 			caller = "7358331702";
 			receiver = "9159673388";
+			janus_Url= "wss://janus-trickle.mirrorfly.com/";
 			break;
 
 		case "Live":
@@ -71,6 +73,7 @@ public class base extends AbstractTestNGCucumberTests {
 
 			caller = "7358331702";
 			receiver = "9159673388";
+			janus_Url= "wwss://janus.mirrorfly.com/";
 			break;
 		}
 	}

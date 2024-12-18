@@ -15,9 +15,9 @@ import io.cucumber.testng.CucumberOptions;
 																						// readable
 )
 public class runner extends base {
-	@AfterClass
-	public void browserclose() {
-		caller_driver.quit();
-		receiver_driver.quit();
-	}
+//	@AfterClass
+//	public void browserclose() {
+//		caller_driver.quit();
+//		receiver_driver.quit();
+//	}
 }
