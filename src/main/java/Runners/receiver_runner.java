@@ -1,7 +1,9 @@
 package Runners;
 
 import java.time.Duration;
+import java.util.Optional;
 
+import org.openqa.selenium.devtools.v128.network.Network;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
@@ -24,6 +26,9 @@ public class receiver_runner extends base {
 		Browser = browser;
 		System.out.println(Browser);
 		receiver_driver = launchbrowser(browser);
+		receiver_devTool =get_devTools(receiver_driver);
+		receiver_devTool.createSession();
+		receiver_devTool.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
 		Environment(environment);
 		//receiver_driver.manage().window().maximize();
 		screen_position(receiver_driver,"right");

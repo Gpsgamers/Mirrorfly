@@ -2,7 +2,11 @@ package Runners;
 
 import java.awt.Dimension;
 import java.time.Duration;
+import java.util.Optional;
+import java.util.Set;
 
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.v128.network.Network;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
@@ -25,9 +29,13 @@ public class caller_runner extends base {
 		Browser = browser;
 		System.out.println(Browser);
 		caller_driver = launchbrowser(browser);
+		caller_devTool = get_devTools(caller_driver);
+		caller_devTool.createSession();
+		caller_devTool.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
+		caller_ws = get_ws(caller_devTool);
 		Environment(environment);
-		//caller_driver.manage().window().maximize();
-        screen_position(caller_driver,"left");
+		// caller_driver.manage().window().maximize();
+		screen_position(caller_driver, "left");
 		caller_driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
 	}
 

@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>testcase</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>4/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>3/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Dec 17 22:34:02 IST 2024</td>
+<td>Started on:</td><td>Wed Dec 18 22:35:50 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>49 seconds (49306 ms)</td>
+<tr><td>Total time:</td><td>49 seconds (49242 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,40 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Runners.runner.runScenario()'><b>runScenario</b><br>Test class: Runners.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Caller goes to reconnection and comes back to online in 30 second", "calls feature testing"</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //span[contains(text(),&apos;Reconnecting&apos;)] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.24.0&apos;, revision: &apos;748ffc9bc3&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.140, chrome: {chromedriverVersion: 131.0.6778.108 (3b014839fbc..., userDataDir: C:\Users\guru\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57190}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57190/devtoo..., se:cdpVersion: 131.0.6778.140, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 396d08a86b040b536c78f3f995955132
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at mirrorflytest.stepdefination.caller_goes_to_reconnection_state(stepdefination.java:108)
+	at ✽.caller goes to reconnection state(file:///C:/Users/guru/Desktop/Automation_script/Mirrorfly/src/test/resources/calls/calls.feature:20)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1161148117", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1161148117'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //span[contains(text(),&apos;Reconnecting&apos;)] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.24.0&apos;, revision: &apos;748ffc9bc3&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.140, chrome: {chromedriverVersion: 131.0.6778.108 (3b014839fbc..., userDataDir: C:\Users\guru\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57190}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57190/devtoo..., se:cdpVersion: 131.0.6778.140, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 396d08a86b040b536c78f3f995955132
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at mirrorflytest.stepdefination.caller_goes_to_reconnection_state(stepdefination.java:108)
+	at ✽.caller goes to reconnection state(file:///C:/Users/guru/Desktop/Automation_script/Mirrorfly/src/test/resources/calls/calls.feature:20)
+</pre></div></td>
+<td>30</td>
+<td>Runners.runner@292b08d6</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -75,25 +109,20 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Runners.runner.runScenario()'><b>runScenario</b><br>Test class: Runners.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Caller from call log and attend the call", "calls feature testing"</td>
+<td title='Runners.runner.runScenario()'><b>runScenario</b><br>Test class: Runners.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Receiver goes to reconnection and comes back to online in 30 second", "calls feature testing"</td>
 <td></td>
-<td>18</td>
-<td>Runners.runner@4afcd809</td></tr>
+<td>0</td>
+<td>Runners.runner@292b08d6</td></tr>
 <tr>
 <td title='Runners.runner.runScenario()'><b>runScenario</b><br>Test class: Runners.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Both caller and receiver disconnected when caller disconnected in reconnection timeout", "calls feature testing"</td>
 <td></td>
 <td>0</td>
-<td>Runners.runner@4afcd809</td></tr>
+<td>Runners.runner@292b08d6</td></tr>
 <tr>
-<td title='Runners.runner.runScenario()'><b>runScenario</b><br>Test class: Runners.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Caller goes to reconnection and comes back to online in 30 second", "calls feature testing"</td>
+<td title='Runners.runner.runScenario()'><b>runScenario</b><br>Test class: Runners.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Caller from call log and attend the call", "calls feature testing"</td>
 <td></td>
-<td>30</td>
-<td>Runners.runner@4afcd809</td></tr>
-<tr>
-<td title='Runners.runner.runScenario()'><b>runScenario</b><br>Test class: Runners.runner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Receiver goes to reconnection and comes back to online in 30 second", "calls feature testing"</td>
-<td></td>
-<td>0</td>
-<td>Runners.runner@4afcd809</td></tr>
+<td>18</td>
+<td>Runners.runner@292b08d6</td></tr>
 </table><p>
 </body>
 </html>

@@ -3,14 +3,16 @@ package Runners;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
-import java.util.Optional;
+import java.util.Set;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.chromium.ChromiumDriver;
 import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.v126.v126Network;
 import org.openqa.selenium.devtools.v128.network.Network;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
@@ -24,7 +26,9 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 public class base extends AbstractTestNGCucumberTests {
 	public static WebDriver caller_driver;
 	public static WebDriver receiver_driver;
-	public static String Browser, caller, receiver, url,janus_Url;
+	public static String Browser, caller, receiver, url, janus_Url;
+	public static DevTools caller_devTool, receiver_devTool;
+	public static Set<String> caller_ws, receiver_ws;
 
 	public WebDriver launchbrowser(String browser) {
 		if (browser.toLowerCase().equals("chrome")) {
@@ -57,7 +61,7 @@ public class base extends AbstractTestNGCucumberTests {
 
 			caller = "7305466010";
 			receiver = "9159673388";
-			janus_Url= "wss://janus-trickle.mirrorfly.com/"; 
+			janus_Url = "wss://janus-trickle.mirrorfly.com/";
 			break;
 
 		case "DEV":
@@ -65,7 +69,7 @@ public class base extends AbstractTestNGCucumberTests {
 
 			caller = "7358331702";
 			receiver = "9159673388";
-			janus_Url= "wss://janus-trickle.mirrorfly.com/";
+			janus_Url = "wss://janus-trickle.mirrorfly.com/";
 			break;
 
 		case "Live":
@@ -73,7 +77,7 @@ public class base extends AbstractTestNGCucumberTests {
 
 			caller = "7358331702";
 			receiver = "9159673388";
-			janus_Url= "wwss://janus.mirrorfly.com/";
+			janus_Url = "wwss://janus.mirrorfly.com/";
 			break;
 		}
 	}
@@ -151,30 +155,13 @@ public class base extends AbstractTestNGCucumberTests {
 
 	}
 
-	public static void block_url(WebDriver driver, String action, String wsurl) {
-		DevTools devTools = null;
-		switch (Browser.toLowerCase()) {
-		case "chrome":
-			devTools = ((ChromeDriver) driver).getDevTools();
-			break;
-
-		case "edge":
-			devTools = ((EdgeDriver) driver).getDevTools();
-			break;
-
-		default:
-			// devTools = ((FirefoxDriver) driver).getDevTools();
-			System.out.println("unsupported driver");
-			break;
-		}
+	public static void block_url(String action, DevTools devTools) {
 
 		switch (action.toLowerCase()) {
-
 		case "block":
-			devTools.createSession();
-			devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
-			devTools.send(Network.setBlockedURLs(java.util.List.of(wsurl)));
+			devTools.send(Network.setBlockedURLs(java.util.List.of("*")));
 			System.out.println("WebSocket connections blocked.");
+
 			break;
 
 		case "unblock":
@@ -182,5 +169,51 @@ public class base extends AbstractTestNGCucumberTests {
 			System.out.println("WebSocket connections unblocked.");
 			break;
 		}
+	}
+
+	public static DevTools get_devTools(WebDriver driver) {
+		DevTools devTools = null;
+		switch (Browser.toLowerCase()) {
+		case "chrome":
+			return ((ChromeDriver) driver).getDevTools();
+
+		case "edge":
+			return ((EdgeDriver) driver).getDevTools();
+
+		default:
+			System.out.println("unsupported driver");
+			return devTools;
+		}
+	}
+
+	public static Set<String> get_ws(DevTools devTools) {
+		Set<String> webSocketIds = new HashSet<>();
+
+		devTools.addListener(Network.webSocketCreated(), ws -> {
+			System.out.println("WebSocket created: " + ws.getUrl());
+			webSocketIds.add(ws.getRequestId().toString());
+		});
+
+		devTools.addListener(Network.webSocketClosed(), ws -> {
+			System.out.println("WebSocket closed: " + ws.getRequestId());
+			webSocketIds.remove(ws.getRequestId().toString());
+		});
+		return webSocketIds;
+	}
+
+	public static void disconnect_ws(WebDriver driver, Set<String> webSocketIds) {
+
+		for (String requestId : webSocketIds) {
+			try {
+				((ChromeDriver) caller_driver).executeCdpCommand("Network.webSocketClose",
+						Map.of("requestId", requestId));
+				System.out.println("Closed WebSocket: " + requestId);
+			} catch (Exception e) {
+				System.err.println("Failed to close WebSocket: " + requestId);
+				e.printStackTrace();
+			}
+			System.err.println("111");
+		}
+
 	}
 }

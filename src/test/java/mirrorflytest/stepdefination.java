@@ -1,6 +1,7 @@
 package mirrorflytest;
 
 import java.time.Duration;
+import java.util.Set;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -89,24 +90,25 @@ public class stepdefination extends methods {
 
 	@When("caller goes to offline")
 	public void caller_goes_to_offline() throws InterruptedException {
-		// block_url(caller_driver, "block", janus_Url);
-		JavascriptExecutor js = (JavascriptExecutor) caller_driver;
+		// block_url("block", caller_devTool);
+		get_ws(caller_devTool);
+		String jsCode = "var websockets = [];" + "var oldWs = window.WebSocket;" + "window.WebSocket = function(url) {"
+				+ "  var socket = new oldWs(url);" + "  websockets.push(socket);"
+				+ "  socket.close = function() { console.log('WebSocket closed'); };" + "  return socket;" + "};"
+				+ "websockets.forEach(function(ws) { ws.close(); });";
 
-		// Inject JavaScript to track and close WebSocket connections
-		offline(caller_driver);
-		DevTools devTools = ((ChromeDriver) caller_driver).getDevTools();
-		devTools.createSession();
-		devTools.send(
-				Network.enable(java.util.Optional.empty(), java.util.Optional.empty(), java.util.Optional.empty()));
-		devTools.send(Network.disable());
+		((JavascriptExecutor) caller_driver).executeScript(jsCode);
 
+		get_ws(caller_devTool);
+		// offline(caller_driver);
 	}
 
 	@Then("caller goes to reconnection state")
 	public void caller_goes_to_reconnection_state() {
 		Assert.assertTrue(caller_wait.until(ExpectedConditions.visibilityOfElementLocated(calls_status("Reconnecting")))
 				.isDisplayed(), "Reconnection text is not displayed");
-		block_url(caller_driver, "unblock", null);
+		block_url("unblock", caller_devTool);
+
 	}
 
 	@When("caller connects the call after {int} second")
