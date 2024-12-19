@@ -31,25 +31,31 @@ public class base extends AbstractTestNGCucumberTests {
 	public static Set<String> caller_ws, receiver_ws;
 
 	public WebDriver launchbrowser(String browser) {
-		if (browser.toLowerCase().equals("chrome")) {
+
+		switch (browser.toLowerCase()) {
+		case "chrome": {
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--use-fake-ui-for-media-stream");
 			options.addArguments("--disable-notifications");
 //			options.addArguments("--headless"); // Enable headless mode
 //			options.addArguments("--disable-gpu"); // Optional: For Windows systems
 			return new ChromeDriver(options);
-		} else if (browser.toLowerCase().equals("edge")) {
+		}
+		case "edge": {
 			EdgeOptions options = new EdgeOptions();
 			options.addArguments("--use-fake-ui-for-media-stream");
 			options.addArguments("--disable-notifications");
 			return new EdgeDriver(options);
-		} else if (browser.toLowerCase().equals("firefox")) {
+		}
+		case "firefox": {
 			FirefoxOptions options = new FirefoxOptions();
 			return new FirefoxDriver(options);
-		} else if (browser.toLowerCase().equals("safari")) {
+		}
+		case "safari": {
 			SafariOptions options = new SafariOptions();
 			return new SafariDriver(options);
-		} else {
+		}
+		default:
 			return null;
 		}
 	}
