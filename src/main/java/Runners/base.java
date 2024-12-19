@@ -65,9 +65,9 @@ public class base extends AbstractTestNGCucumberTests {
 			break;
 
 		case "DEV":
-			url = "https://webchat-uikit-qa.contus.us/";
+			url = "https://webchat-uikit-dev.contus.us/";
 
-			caller = "7358331702";
+			caller = "7358337102";
 			receiver = "9159673388";
 			janus_Url = "wss://janus-trickle.mirrorfly.com/";
 			break;

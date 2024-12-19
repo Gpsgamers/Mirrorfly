@@ -90,17 +90,24 @@ public class stepdefination extends methods {
 
 	@When("caller goes to offline")
 	public void caller_goes_to_offline() throws InterruptedException {
-		// block_url("block", caller_devTool);
+		block_url("block", caller_devTool);
 		get_ws(caller_devTool);
-		String jsCode = "var websockets = [];" + "var oldWs = window.WebSocket;" + "window.WebSocket = function(url) {"
-				+ "  var socket = new oldWs(url);" + "  websockets.push(socket);"
-				+ "  socket.close = function() { console.log('WebSocket closed'); };" + "  return socket;" + "};"
-				+ "websockets.forEach(function(ws) { ws.close(); });";
+		String jsCode = "if (window.WebSocket) {" +
+                "    window.WebSocket.prototype.close = function() {" +
+                "        console.log('WebSocket closed manually.');" +
+                "    };" +
+                "    let openSockets = []; " +
+                "    for (const ws of openSockets) {" +
+                "        ws.close();" +
+                "    }" +
+                "} else {" +
+                "    console.log('WebSocket not supported in this browser.');" +
+                "}";
+                
 
 		((JavascriptExecutor) caller_driver).executeScript(jsCode);
-
 		get_ws(caller_devTool);
-		// offline(caller_driver);
+		offline(caller_driver);
 	}
 
 	@Then("caller goes to reconnection state")
