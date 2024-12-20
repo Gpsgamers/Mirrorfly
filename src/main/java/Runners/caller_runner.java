@@ -30,8 +30,6 @@ public class caller_runner extends base {
 		System.out.println(Browser);
 		caller_driver = launchbrowser(browser);
 		caller_devTool = get_devTools(caller_driver);
-		caller_devTool.createSession();
-		caller_devTool.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
 		caller_ws = get_ws(caller_devTool);
 		Environment(environment);
 		// caller_driver.manage().window().maximize();

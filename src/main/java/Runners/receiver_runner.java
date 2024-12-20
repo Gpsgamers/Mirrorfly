@@ -26,12 +26,10 @@ public class receiver_runner extends base {
 		Browser = browser;
 		System.out.println(Browser);
 		receiver_driver = launchbrowser(browser);
-		receiver_devTool =get_devTools(receiver_driver);
-		receiver_devTool.createSession();
-		receiver_devTool.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
+		receiver_devTool = get_devTools(receiver_driver);
 		Environment(environment);
-		//receiver_driver.manage().window().maximize();
-		screen_position(receiver_driver,"right");
+		// receiver_driver.manage().window().maximize();
+		screen_position(receiver_driver, "right");
 		receiver_driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
 	}
 }

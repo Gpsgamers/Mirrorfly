@@ -5,6 +5,7 @@ import java.awt.Toolkit;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 import org.openqa.selenium.WebDriver;
@@ -65,8 +66,8 @@ public class base extends AbstractTestNGCucumberTests {
 		case "QA":
 			url = "https://webchat-uikit-qa.contus.us/";
 
-			caller = "7305466010";
-			receiver = "9159673388";
+			caller = "7358337102";
+			receiver = "7305466010";
 			janus_Url = "wss://janus-trickle.mirrorfly.com/";
 			break;
 
@@ -74,7 +75,7 @@ public class base extends AbstractTestNGCucumberTests {
 			url = "https://webchat-uikit-dev.contus.us/";
 
 			caller = "7358337102";
-			receiver = "9159673388";
+			receiver = "7305466010";
 			janus_Url = "wss://janus-trickle.mirrorfly.com/";
 			break;
 
@@ -180,11 +181,19 @@ public class base extends AbstractTestNGCucumberTests {
 	public static DevTools get_devTools(WebDriver driver) {
 		DevTools devTools = null;
 		switch (Browser.toLowerCase()) {
-		case "chrome":
-			return ((ChromeDriver) driver).getDevTools();
+		case "chrome": {
+			devTools = ((ChromeDriver) driver).getDevTools();
+			devTools.createSession();
+			devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
+			return devTools;
+		}
 
-		case "edge":
-			return ((EdgeDriver) driver).getDevTools();
+		case "edge": {
+			devTools = ((EdgeDriver) driver).getDevTools();
+			devTools.createSession();
+			devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
+			return devTools;
+		}
 
 		default:
 			System.out.println("unsupported driver");
@@ -207,19 +216,9 @@ public class base extends AbstractTestNGCucumberTests {
 		return webSocketIds;
 	}
 
-	public static void disconnect_ws(WebDriver driver, Set<String> webSocketIds) {
-
-		for (String requestId : webSocketIds) {
-			try {
-				((ChromeDriver) caller_driver).executeCdpCommand("Network.webSocketClose",
-						Map.of("requestId", requestId));
-				System.out.println("Closed WebSocket: " + requestId);
-			} catch (Exception e) {
-				System.err.println("Failed to close WebSocket: " + requestId);
-				e.printStackTrace();
-			}
-			System.err.println("111");
-		}
-
-	}
+	public static String ws_disconnect = "if (window.WebSocket) {"
+			+ "    window.WebSocket.prototype.close = function() {"
+			+ "        console.log('WebSocket closed manually.');" + "    };" + "    let openSockets = []; "
+			+ "    for (const ws of openSockets) {" + "        ws.close();" + "    }" + "} else {"
+			+ "    console.log('WebSocket not supported in this browser.');" + "}";
 }

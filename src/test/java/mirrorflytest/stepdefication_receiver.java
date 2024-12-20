@@ -11,11 +11,11 @@ import io.cucumber.java.en.When;
 
 public class stepdefication_receiver extends methods {
 	public static WebDriverWait wait;
-	
+
 	@Given("Receiver : Navigate to register page")
 	public void receiver_navigate_to_register_page() {
 		methods.receiver_driver.get(url);
-		
+
 	}
 
 	@When("Receiver : Enter the number on the number field")
@@ -30,12 +30,12 @@ public class stepdefication_receiver extends methods {
 	public void receiver_click_on_the_register_button() {
 		receiver_driver.findElement(continue_btn).click();
 		receiver_driver.findElement(verify_otp_btn).click();
-		
+
 		try {
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(pageloader));
 			receiver_driver.findElement(session_confirm_btn).click();
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(pageloader));
-		}catch (Exception e) {
+		} catch (Exception e) {
 		}
 	}
 

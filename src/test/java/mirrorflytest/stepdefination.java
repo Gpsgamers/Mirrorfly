@@ -92,20 +92,7 @@ public class stepdefination extends methods {
 	public void caller_goes_to_offline() throws InterruptedException {
 		block_url("block", caller_devTool);
 		get_ws(caller_devTool);
-		String jsCode = "if (window.WebSocket) {" +
-                "    window.WebSocket.prototype.close = function() {" +
-                "        console.log('WebSocket closed manually.');" +
-                "    };" +
-                "    let openSockets = []; " +
-                "    for (const ws of openSockets) {" +
-                "        ws.close();" +
-                "    }" +
-                "} else {" +
-                "    console.log('WebSocket not supported in this browser.');" +
-                "}";
-                
-
-		((JavascriptExecutor) caller_driver).executeScript(jsCode);
+		((JavascriptExecutor) caller_driver).executeScript(ws_disconnect);
 		get_ws(caller_devTool);
 		offline(caller_driver);
 	}
