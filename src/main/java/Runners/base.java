@@ -2,13 +2,18 @@ package Runners;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.function.Function;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.chromium.ChromiumDriver;
@@ -21,6 +26,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 
@@ -68,7 +75,6 @@ public class base extends AbstractTestNGCucumberTests {
 
 			caller = "7358337102";
 			receiver = "7305466010";
-			janus_Url = "wss://janus-trickle.mirrorfly.com/";
 			break;
 
 		case "DEV":
@@ -76,7 +82,6 @@ public class base extends AbstractTestNGCucumberTests {
 
 			caller = "7358337102";
 			receiver = "7305466010";
-			janus_Url = "wss://janus-trickle.mirrorfly.com/";
 			break;
 
 		case "Live":
@@ -84,7 +89,6 @@ public class base extends AbstractTestNGCucumberTests {
 
 			caller = "7358331702";
 			receiver = "9159673388";
-			janus_Url = "wwss://janus.mirrorfly.com/";
 			break;
 		}
 	}

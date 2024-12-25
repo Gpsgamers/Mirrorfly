@@ -31,7 +31,7 @@ public class stepdefination_caller extends methods {
 		caller_driver.findElement(verify_otp_btn).click();
 		try {
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(pageloader));
-			caller_driver.findElement(session_confirm_btn).click();
+			wait.until(ExpectedConditions.visibilityOfElementLocated(session_confirm_btn)).click();
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(pageloader));
 		} catch (Exception e) {
 		}

@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="6" passed="4" failed="2" skipped="0">
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-12-20T10:31:22 IST" name="Suite" finished-at="2024-12-20T10:32:27 IST" duration-ms="64587">
+  <suite started-at="2024-12-24T22:26:25 IST" name="Suite" finished-at="2024-12-24T22:27:55 IST" duration-ms="90569">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runners.caller_runner@2a4fb17b]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runners.receiver_runner@692f203f]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runners.runner@206a70ef]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runners.caller_runner@128d2484]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runners.receiver_runner@1aafa419]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runners.runner@45752059]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2024-12-20T10:31:22 IST" name="parallel" finished-at="2024-12-20T10:31:29 IST" duration-ms="7160">
+    <test started-at="2024-12-24T22:26:25 IST" name="parallel" finished-at="2024-12-24T22:27:06 IST" duration-ms="41293">
       <class name="Runners.caller_runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:Runners.caller_runner@2a4fb17b]" started-at="2024-12-20T10:31:22 IST" name="setUpClass" finished-at="2024-12-20T10:31:23 IST" duration-ms="661" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:Runners.caller_runner@128d2484]" started-at="2024-12-24T22:26:25 IST" name="setUpClass" finished-at="2024-12-24T22:26:25 IST" duration-ms="580" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@1608bcbd]]>
+                <![CDATA[org.testng.TestRunner@14f9390f]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="browserlaunchconfiguration(java.lang.String,java.lang.String)[pri:0, instance:Runners.caller_runner@2a4fb17b]" started-at="2024-12-20T10:31:23 IST" name="browserlaunchconfiguration" finished-at="2024-12-20T10:31:25 IST" duration-ms="2328" status="PASS">
+        <test-method is-config="true" signature="browserlaunchconfiguration(java.lang.String,java.lang.String)[pri:0, instance:Runners.caller_runner@128d2484]" started-at="2024-12-24T22:26:25 IST" name="browserlaunchconfiguration" finished-at="2024-12-24T22:26:28 IST" duration-ms="2960" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -32,14 +32,14 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[dev]]>
+                <![CDATA[qa]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserlaunchconfiguration -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runners.caller_runner@2a4fb17b]" started-at="2024-12-20T10:31:25 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-12-20T10:31:29 IST" duration-ms="3994" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runners.caller_runner@128d2484]" started-at="2024-12-24T22:26:28 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-12-24T22:26:36 IST" duration-ms="8046" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -52,68 +52,27 @@
               </value>
             </param>
           </params>
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='VerifyOtp']"}
-  (Session info: chrome=131.0.6778.205)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.24.0', revision: '748ffc9bc3'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [ea00955fbafca47f817c5a7fb2190058, findElement {value=//button[@id='VerifyOtp'], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\guru\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64287}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64287/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: ea00955fbafca47f817c5a7fb2190058]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='VerifyOtp']"}
-  (Session info: chrome=131.0.6778.205)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.24.0', revision: '748ffc9bc3'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [ea00955fbafca47f817c5a7fb2190058, findElement {value=//button[@id='VerifyOtp'], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\guru\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64287}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64287/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: ea00955fbafca47f817c5a7fb2190058
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
-at mirrorflytest.stepdefination_caller.caller_click_on_the_register_button(stepdefination_caller.java:31)
-at ✽.Caller : click on the register button(file:///C:/Users/guru/Desktop/Automation_script/Mirrorfly/src/test/resources/login/caller_login.feature:8)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runners.caller_runner@2a4fb17b]" started-at="2024-12-20T10:31:29 IST" name="tearDownClass" finished-at="2024-12-20T10:31:29 IST" duration-ms="42" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runners.caller_runner@128d2484]" started-at="2024-12-24T22:26:36 IST" name="tearDownClass" finished-at="2024-12-24T22:26:37 IST" duration-ms="48" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- Runners.caller_runner -->
       <class name="Runners.receiver_runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:Runners.receiver_runner@692f203f]" started-at="2024-12-20T10:31:22 IST" name="setUpClass" finished-at="2024-12-20T10:31:23 IST" duration-ms="661" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:Runners.receiver_runner@1aafa419]" started-at="2024-12-24T22:26:25 IST" name="setUpClass" finished-at="2024-12-24T22:26:25 IST" duration-ms="580" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@1608bcbd]]>
+                <![CDATA[org.testng.TestRunner@14f9390f]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="browserlaunchconfiguration(java.lang.String,java.lang.String)[pri:0, instance:Runners.receiver_runner@692f203f]" started-at="2024-12-20T10:31:23 IST" name="browserlaunchconfiguration" finished-at="2024-12-20T10:31:25 IST" duration-ms="2328" status="PASS">
+        <test-method is-config="true" signature="browserlaunchconfiguration(java.lang.String,java.lang.String)[pri:0, instance:Runners.receiver_runner@1aafa419]" started-at="2024-12-24T22:26:25 IST" name="browserlaunchconfiguration" finished-at="2024-12-24T22:26:28 IST" duration-ms="2960" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -122,14 +81,14 @@ at ✽.Caller : click on the register button(file:///C:/Users/guru/Desktop/Autom
             </param>
             <param index="1">
               <value>
-                <![CDATA[dev]]>
+                <![CDATA[qa]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserlaunchconfiguration -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runners.receiver_runner@692f203f]" started-at="2024-12-20T10:31:25 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-12-20T10:31:29 IST" duration-ms="4107" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runners.receiver_runner@1aafa419]" started-at="2024-12-24T22:26:28 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-12-24T22:27:06 IST" duration-ms="37718" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -142,70 +101,29 @@ at ✽.Caller : click on the register button(file:///C:/Users/guru/Desktop/Autom
               </value>
             </param>
           </params>
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='VerifyOtp']"}
-  (Session info: chrome=131.0.6778.205)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.24.0', revision: '748ffc9bc3'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [9ee504fd7684b28217afe94d7cffdca3, findElement {value=//button[@id='VerifyOtp'], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\guru\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64289}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64289/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 9ee504fd7684b28217afe94d7cffdca3]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@id='VerifyOtp']"}
-  (Session info: chrome=131.0.6778.205)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.24.0', revision: '748ffc9bc3'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [9ee504fd7684b28217afe94d7cffdca3, findElement {value=//button[@id='VerifyOtp'], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\guru\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64289}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64289/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 9ee504fd7684b28217afe94d7cffdca3
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
-at mirrorflytest.stepdefication_receiver.receiver_click_on_the_register_button(stepdefication_receiver.java:32)
-at ✽.Receiver : click on the register button(file:///C:/Users/guru/Desktop/Automation_script/Mirrorfly/src/test/resources/login/receiver_login.feature:8)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runners.receiver_runner@692f203f]" started-at="2024-12-20T10:31:29 IST" name="tearDownClass" finished-at="2024-12-20T10:31:29 IST" duration-ms="23" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runners.receiver_runner@1aafa419]" started-at="2024-12-24T22:27:06 IST" name="tearDownClass" finished-at="2024-12-24T22:27:06 IST" duration-ms="11" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- Runners.receiver_runner -->
     </test> <!-- parallel -->
-    <test started-at="2024-12-20T10:31:29 IST" name="testcase" finished-at="2024-12-20T10:32:27 IST" duration-ms="57377">
+    <test started-at="2024-12-24T22:27:06 IST" name="testcase" finished-at="2024-12-24T22:27:55 IST" duration-ms="49241">
       <class name="Runners.runner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:Runners.runner@206a70ef]" started-at="2024-12-20T10:31:29 IST" name="setUpClass" finished-at="2024-12-20T10:31:29 IST" duration-ms="21" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:Runners.runner@45752059]" started-at="2024-12-24T22:27:06 IST" name="setUpClass" finished-at="2024-12-24T22:27:06 IST" duration-ms="18" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@5812f68b]]>
+                <![CDATA[org.testng.TestRunner@5965be2d]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runners.runner@206a70ef]" started-at="2024-12-20T10:31:29 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-12-20T10:31:53 IST" duration-ms="23533" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runners.runner@45752059]" started-at="2024-12-24T22:27:06 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-12-24T22:27:22 IST" duration-ms="15890" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -221,7 +139,7 @@ at ✽.Receiver : click on the register button(file:///C:/Users/guru/Desktop/Aut
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runners.runner@206a70ef]" started-at="2024-12-20T10:31:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-12-20T10:32:27 IST" duration-ms="33786" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runners.runner@45752059]" started-at="2024-12-24T22:27:22 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-12-24T22:27:55 IST" duration-ms="33295" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -237,7 +155,7 @@ at ✽.Receiver : click on the register button(file:///C:/Users/guru/Desktop/Aut
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runners.runner@206a70ef]" started-at="2024-12-20T10:32:27 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-12-20T10:32:27 IST" duration-ms="9" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runners.runner@45752059]" started-at="2024-12-24T22:27:55 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-12-24T22:27:55 IST" duration-ms="10" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -253,7 +171,7 @@ at ✽.Receiver : click on the register button(file:///C:/Users/guru/Desktop/Aut
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runners.runner@206a70ef]" started-at="2024-12-20T10:32:27 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-12-20T10:32:27 IST" duration-ms="8" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:Runners.runner@45752059]" started-at="2024-12-24T22:27:55 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-12-24T22:27:55 IST" duration-ms="10" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -269,7 +187,7 @@ at ✽.Receiver : click on the register button(file:///C:/Users/guru/Desktop/Aut
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runners.runner@206a70ef]" started-at="2024-12-20T10:32:27 IST" name="tearDownClass" finished-at="2024-12-20T10:32:27 IST" duration-ms="12" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Runners.runner@45752059]" started-at="2024-12-24T22:27:55 IST" name="tearDownClass" finished-at="2024-12-24T22:27:55 IST" duration-ms="14" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

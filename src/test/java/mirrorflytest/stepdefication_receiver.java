@@ -33,7 +33,7 @@ public class stepdefication_receiver extends methods {
 
 		try {
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(pageloader));
-			receiver_driver.findElement(session_confirm_btn).click();
+			wait.until(ExpectedConditions.visibilityOfElementLocated(session_confirm_btn)).click();
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(pageloader));
 		} catch (Exception e) {
 		}
