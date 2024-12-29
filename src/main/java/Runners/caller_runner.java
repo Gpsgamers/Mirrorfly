@@ -24,14 +24,15 @@ import io.cucumber.testng.CucumberOptions;
 )
 public class caller_runner extends base {
 	@BeforeClass
-	@Parameters({ "browser", "environment" })
-	public void browserlaunchconfiguration(String browser, String environment) {
+	@Parameters({ "browser", "environment", "Url_QA", "Url_Dev", "Url_Prod" })
+	public void browserlaunchconfiguration(String browser, String environment, String Url_QA, String Url_Dev,
+			String Url_Prod) {
 		Browser = browser;
 		System.out.println(Browser);
 		caller_driver = launchbrowser(browser);
 		caller_devTool = get_devTools(caller_driver);
 		caller_ws = get_ws(caller_devTool);
-		Environment(environment);
+		Environment(environment, Url_QA, Url_Dev, Url_Prod);
 		// caller_driver.manage().window().maximize();
 		screen_position(caller_driver, "left");
 		caller_driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));

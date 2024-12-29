@@ -21,13 +21,14 @@ import io.cucumber.testng.CucumberOptions;
 )
 public class receiver_runner extends base {
 	@BeforeClass
-	@Parameters({ "browser", "environment" })
-	public void browserlaunchconfiguration(String browser, String environment) {
+	@Parameters({ "browser", "environment", "Url_QA", "Url_Dev", "Url_Prod" })
+	public void browserlaunchconfiguration(String browser, String environment, String Url_QA, String Url_Dev,
+			String Url_Prod) {
 		Browser = browser;
 		System.out.println(Browser);
 		receiver_driver = launchbrowser(browser);
 		receiver_devTool = get_devTools(receiver_driver);
-		Environment(environment);
+		Environment(environment, Url_QA, Url_Dev, Url_Prod);
 		// receiver_driver.manage().window().maximize();
 		screen_position(receiver_driver, "right");
 		receiver_driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));

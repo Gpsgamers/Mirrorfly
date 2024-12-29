@@ -68,24 +68,24 @@ public class base extends AbstractTestNGCucumberTests {
 		}
 	}
 
-	public void Environment(String Env) {
-		switch (Env.toUpperCase()) {
-		case "QA":
-			url = "https://webchat-uikit-qa.contus.us/";
+	public void Environment(String Env, String Url_QA, String Url_Dev, String Url_Prod) {
+		switch (Env.toLowerCase()) {
+		case "qa":
+			url = Url_QA;
 
 			caller = "7358337102";
 			receiver = "7305466010";
 			break;
 
-		case "DEV":
-			url = "https://webchat-uikit-dev.contus.us/";
+		case "dev":
+			url = Url_Dev;
 
 			caller = "7358337102";
 			receiver = "7305466010";
 			break;
 
-		case "Live":
-			url = "https://webchat-uikit-qa.contus.us/";
+		case "prod":
+			url = Url_Prod;
 
 			caller = "7358331702";
 			receiver = "9159673388";
